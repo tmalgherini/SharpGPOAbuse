@@ -53,17 +53,11 @@ steps:
       "@|Out-File -FilePath confuserex.crproj
       mkdir confused
       
-- task: CmdLine@2
-  name: ConfuserExRun
-  inputs:
-    script: |
-        dir
-        confuserex\Confuser.CLI.exe confuserex.crproj
 
 - task: AzureFileCopy@3
   name: UploadFile
   inputs:
-    SourcePath: 'D:\a\1\s\confused\SharpGPOAbuse\bin\Release\SharpGPOAbuse.exe'
+    SourcePath: 'D:\a\1\s\SharpGPOAbuse\bin\Release\SharpGPOAbuse.exe'
     azureSubscription: $(SubName)
     Destination: 'AzureBlob'
     storage: $(StorageAccount)
